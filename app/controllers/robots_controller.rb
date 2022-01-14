@@ -6,7 +6,8 @@ class RobotsController < ApplicationController
   end
 
   def create
-    RobotService.call(params[:robot])
+    @robot = RobotService.call(params[:robot])
+    @report = @robot.report
 
     render :new
   end
