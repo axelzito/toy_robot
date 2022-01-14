@@ -1,0 +1,68 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+  - test_prof/rubocop
+
+AllCops:
+  TargetRubyVersion: 3.0.1
+  NewCops: disable
+  Exclude:
+    - "bin/*"
+    - "db/schema.rb"
+    - "db/migrate/*"
+    - "docker/*"
+    - "vendor/**/*"
+    - 'app/services/**/*'
+    - "**/spec/*_helper.rb"
+    - config/environments/development.rb
+
+Metrics/BlockLength:
+  IgnoredMethods:
+    [
+        "describe",
+        "context",
+        "FactoryBot.define",
+        "configure",
+        "factory",
+        "specify",
+    ]
+  Exclude:
+    - "config/routes.rb"
+    - "spec/**/*"
+
+RSpec/ExampleLength:
+  Max: 21
+
+RSpec/EmptyExampleGroup:
+  Exclude:
+    - "spec/requests/**/*"
+
+# do not require class documentation
+Style/Documentation:
+  Enabled: false
+
+# ignore comments when calculating method length
+Metrics/MethodLength:
+  CountComments: false
+  Max: 20
+
+# allow accents and ascii in comments
+Style/AsciiComments:
+  Enabled: false
+
+# ignore comments when calculating line length
+Layout/LineLength:
+  IgnoredPatterns: [ '(\A|\s)#' ]
+
+# allow free Gemfile organization
+Bundler/OrderedGems:
+  Enabled: false
+
+# enforce using numeric status codes in http responses
+Rails/HttpStatus:
+  EnforcedStyle: numeric
+
+# allow more expectations per it
+RSpec/MultipleExpectations:
+  Max: 5
