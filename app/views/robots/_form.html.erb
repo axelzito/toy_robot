@@ -1,0 +1,40 @@
+<%= form_for(@robot, url: robots_path) do |f| %>
+  <% if @robot.errors.any? %>
+    <ul>
+    <% @robot.errors.full_messages.each do |msg| %>
+      <li><b style="color:orange"><%= msg %></b></li>
+  <% end %>
+  </ul>
+  <% end %>
+  <table>
+    <tr>
+      <td colspan="2">
+        <div class="field">
+          Type size of the Grid default: 5x5
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="field">
+          <%= f.label :commands %><br/>
+          <%= f.text_area :commands, placeholder: 'Commands', style: "width:350px;height:150px" %>
+          <p><i>Type commands available: [ PLACE X,Y,( NORTH | WEST | SOUTH | EAST ) | MOVE | LEFT | RIGHT | REPORT ] - whitespace delimited</i></p>
+          <b><%= "Output: #{@report}" if @report %></b>
+        </div>
+      </td>
+      <td>
+        <%= f.hidden_field :size_grid_x %>
+        <%= f.hidden_field :size_grid_y %>
+        <%= f.hidden_field :x_coordinate %>
+        <%= f.hidden_field :y_coordinate %>
+        <%= f.hidden_field :facing %>
+        <%= f.hidden_field :report %>
+      </td>
+    </tr>
+  </table>
+
+  <div class="field">
+    <%= f.submit 'Post Commands' %>
+  </div>
+<% end %>
