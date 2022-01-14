@@ -1,24 +1,50 @@
-# README
+# Toy Robot Simulator
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Using:
 
-Things you may want to cover:
+- Ruby 3.1.0
+- Rails 7.0.1
 
-* Ruby version
+## About
+The application is a simulation of a toy robot moving on a square tabletop, of dimensions 5x5. Having a CLI option and also a web version.
 
-* System dependencies
+## Command Line Interface (CLI)
 
-* Configuration
+```sh
+PLACE X,Y,F
+MOVE
+LEFT
+RIGHT
+REPORT
+```
 
-* Database creation
+## Download and Local installation
 
-* Database initialization
+#### 1) Clone and configure your bundle and database
+```sh
+git clone https://github.com/axelzito/toy_robot.git project_name
+```
 
-* How to run the test suite
+```sh
+cd project_name
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+```sh
+bundle install
+```
 
-* Deployment instructions
+#### 2) Start your server
+```sh
+rails s -p 3000
+```
 
-* ...
+#### 3) Run the application in your browser
+
+```sh
+http://localhost:3000/
+```
+
+
+
+
+by [Axel Miguez](https://github.com/axelzito)
